@@ -1,0 +1,35 @@
+---------------visual studio code--------------------------
+usar tipo Guid para claves primarias de id
+dotnet new webapi -o proyecto-> generar proyecto
+
+dotnet add package Microsoft.EntityFrameworkCore -> añadir paquetes
+
+dotnet ef migrations add InitialCreate
+
+dotnet ef database update -> corre las migraciones
+
+
+control+.
+-------------- visual studio-------------------------------
+- Habilita migraciones en el proyecto
+
+Enable-Migrations -ContextProjectName  MODEL_PROYECT_NAME -StartUpProjectName  STARTUP_PROYECT_NAME   -Force
+
+
+- Añade una nueva Migracion con los cambios pendientes
+
+Add-Migration -ProjectName MODEL_PROYECT_NAME -StartUpProjectName MODEL_PROYECT_NAME 
+
+
+- Ejecuta manualmente migraciónes Pendientes
+
+Update-Database -Force -ProjectName MODEL_PROYECT_NAME -StartUpProjectName STARTUP_PROYECT_NAME
+
+
+- Ejecuta Migraciones necesarias hasta llegar a la indicada, esto vale tanto para revertir como para actualizar
+
+Update-Database -Force -TargetMigration NOMBRE_MIGRACION_OBJETIVO -ProjectName MODEL_PROYECT_NAME -StartUpProjectName STARTUP_PROYECT_NAME
+[17:16]
+dotnet ef migrations add yourMigrationName --context nombreContexto
+
+dotnet ef database update --context nombreContexto
